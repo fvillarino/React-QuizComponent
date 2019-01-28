@@ -15,7 +15,7 @@ class QuizQuestion extends Component {
                 </section>
             </main>
         )
-    }
+    } 
 }
 
 export default QuizQuestion
