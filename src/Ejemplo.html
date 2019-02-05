@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:fb="//ogp.me/ns/fb#">
+
+<head>
+    <title>HTML Center Page</title>
+
+    <link rel="dns-prefetch" href="//ssa.datafactory.la">
+    <link rel="dns-prefetch" href="//platform.twitter.com">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//1287719000.rsc.cdn77.org">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!--[if lt IE 9]>
+           <script src="htmlCenter/assets/js/respond.min.js"></script>
+      <![endif]-->
+    <style type="text/css">
+
+        .generalBody {
+            padding: 0;
+            margin: 0;
+        }
+
+        .modulePreloader{
+            height:30px;
+            width:30px;
+            margin:5px auto;
+            position:relative;
+            -webkit-animation: rotation .6s infinite linear;
+            -moz-animation: rotation .6s infinite linear;
+            -o-animation: rotation .6s infinite linear;
+            animation: rotation .6s infinite linear;
+            border-width:6px;
+            border-style:solid;
+            border-color:#CCC #CCC #000;
+            border-radius:100%;
+            box-sizing:border-box;
+        }
+
+        @-webkit-keyframes rotation {
+            from {
+                webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+
+        @-moz-keyframes rotation {
+            from {
+                -moz-transform: rotate(0deg);
+            }
+            to {
+                -moz-transform: rotate(359deg);
+            }
+        }
+
+        @-o-keyframes rotation {
+            from {
+                -o-transform: rotate(0deg);
+            }
+            to {
+                -o-transform: rotate(359deg);
+            }
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body class="generalBody">
+
+    <div class="loaderCtn">
+        <div class="modulePreloader"></div>
+    </div>
+
+    <div class="errorCtn"></div>
+
+    <div class="dfMc-Page" data-event='' data-page='' data-settings=''></div>
+
+    <!-- ********************************************************
+            JAVASCRIPT USADO PARA INICIALIZAR EL MÓDULO
+    *********************************************************** -->
+
+    <!-- SE INCLUYE EL SCRIPT CON LA CONFIGURACIÓN DE LA MINAPP -->
+    <script type="text/javascript" src="../minApp.js"></script>
+
+    <script type="text/javascript">
+
+        console.info("debug-start");
+
+        //Modifico la URL base del require
+        require.baseUrl = "../../htmlCenter";
+
+        //Se activa el modo de debugging
+        if(_dfMc.fn.getParameter("devMode", null) !== null){
+            _dfMc.initSettings.devMode = _dfMc.fn.getParameter("devMode");
+        }
+
+        /*******************************************************************
+             FUNCIÓN QUE SE MANDA LLAMAR CUANDO CARGA EL CORE DE LA MINAPP
+         *******************************************************************/
+         _dfMc.appHandlerFunction = function(){console.info("debug-appHandlerFunction");
+
+            /*
+             //Contenedor del módulo
+             var mCtn = $mc(_dfMc.settings.get("standardSelectors").moduleCtn + ".mc-scoreBoard");
+             //Selector del módulo
+             var moduleElement = mCtn.parent("." + _dfMc.settings.get("moduleClassSelector"));
+
+             //Ocultar el preloader
+             moduleElement.find(".modulePreloader").hide();
+             //Mostrar el HTML del módulo
+             mCtn.show();
+             */
+
+             //Incluir la lógica del módulo
+             require(["dfMc_pageMin"],function(pageModule){
+
+                 console.info("debug-pageModule loaded");
+
+               });
+
+         };
+
+    </script>
+
+    <!-- SE INCLUYE EL SCRIPT DE REQUIRE CON SU RESPECTIVO ARCHIVO DE CONFIGURACIÓN -->
+    <script type="text/javascript" src="../../htmlCenter/assets/js/require.js" data-main="../minapp/init.min.js" ></script>
+    <!-- SCRIPT DE ANALYTICS -->
+    <script src="../../htmlCenter/customization/js/mc.googleAnalytics.js"></script>
+
+</body>
+
+</html>
+
